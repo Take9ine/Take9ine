@@ -20,7 +20,7 @@
                     <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
                         <path d="M12 54V24h40v30M8 54h48M20 24V13h24v11M24 32h5m6 0h5M24 41h5m6 0h5M28 54V45h8v9" />
                     </svg>
-                  s  <span>T@ke9ine</span>
+                    <span>T@ke9ine</span>
                 </div>
                 <span class="alert-message"></span>
             </div>
@@ -33,19 +33,10 @@
                 </div>
                 <div class="form-group">
                     <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="password" placeholder="••••••••" autocomplete="current-password" required>
-                </div>
-                <div class="form-group human-verification">
-                    <label for="login-human-verification">
-                        <input
-                            type="checkbox"
-                            id="login-human-verification"
-                            name="human_verification"
-                            value="1"
-                            required
-                        >
-                        <span>Check this box to confirm you are human.</span>
-                    </label>
+                    <div class="password-field">
+                        <input type="password" id="login-password" name="password" placeholder="Enter your password" minlength="6" maxlength="72" autocomplete="current-password" required>
+                        <button class="password-toggle" type="button" aria-controls="login-password" aria-pressed="false">Show</button>
+                    </div>
                 </div>
                 <button type="submit" class="btn-primary">Sign In</button>
                 <p class="switch-text"><a href="#" id="show-forgot-password">Forgot password?</a></p>
@@ -81,27 +72,33 @@
                 </div>
                 <div class="form-group">
                     <label for="reset-password">New Password</label>
-                    <input
-                        type="password"
-                        id="reset-password"
-                        name="password"
-                        minlength="6"
-                        maxlength="72"
-                        autocomplete="new-password"
-                        required
-                    >
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="reset-password"
+                            name="password"
+                            minlength="6"
+                            maxlength="72"
+                            autocomplete="new-password"
+                            required
+                        >
+                        <button class="password-toggle" type="button" aria-controls="reset-password" aria-pressed="false">Show</button>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="reset-password-confirm">Confirm New Password</label>
-                    <input
-                        type="password"
-                        id="reset-password-confirm"
-                        name="confirm_password"
-                        minlength="6"
-                        maxlength="72"
-                        autocomplete="new-password"
-                        required
-                    >
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="reset-password-confirm"
+                            name="confirm_password"
+                            minlength="6"
+                            maxlength="72"
+                            autocomplete="new-password"
+                            required
+                        >
+                        <button class="password-toggle" type="button" aria-controls="reset-password-confirm" aria-pressed="false">Show</button>
+                    </div>
                 </div>
                 <button type="submit" class="btn-primary">Reset Password</button>
                 <p class="switch-text">Didn't receive a code? <a href="#" id="reset-request-another">Request another</a></p>
@@ -124,7 +121,10 @@
                 </div>
                 <div class="form-group">
                     <label for="reg-password">Password</label>
-                    <input type="password" id="reg-password" name="password" placeholder="Min. 6 characters" minlength="6" maxlength="72" autocomplete="new-password" required>
+                    <div class="password-field">
+                        <input type="password" id="reg-password" name="password" placeholder="At least 6 characters" minlength="6" maxlength="72" autocomplete="new-password" required>
+                        <button class="password-toggle" type="button" aria-controls="reg-password" aria-pressed="false">Show</button>
+                    </div>
                 </div>
                 <button type="submit" class="btn-primary">Create Account</button>
                 <p class="switch-text">Already have an account? <a href="#" id="show-login">Log in</a></p>

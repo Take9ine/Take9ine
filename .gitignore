@@ -8,8 +8,9 @@
 *.pfx
 credentials.json
 secrets.json
+config/*.local.php
 
-# Local database exports and backups (keep T@ke9ine.sql schema)
+# Local database exports and backups (keep database/schema.sql)
 *.sql.gz
 *.dump
 *.bak
@@ -23,6 +24,8 @@ error_log
 *.cache
 /tmp/
 /storage/
+/logs/
+*.tmp
 
 # Editor and operating-system noise
 .vscode/

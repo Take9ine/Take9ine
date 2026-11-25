@@ -38,7 +38,7 @@
             rgba(23, 29, 38, 0.70),
             rgba(23, 29, 38, 0.78)
         ),
-        url("../images/booking-hero.jpg") center 45% / cover no-repeat;
+        url("../assets/images/hotel-hero.jpg") center 45% / cover no-repeat;
     color: #ffffff;
     text-align: center;
 }
@@ -984,7 +984,7 @@ body[data-theme="dark"] .booking-hero {
             rgba(12, 15, 20, 0.72),
             rgba(12, 15, 20, 0.82)
         ),
-        url("../images/booking-hero.jpg");
+        url("../assets/images/hotel-hero.jpg");
 }
 
 html[data-theme="dark"] .form-group input::placeholder,

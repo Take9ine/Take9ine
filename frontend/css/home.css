@@ -827,7 +827,7 @@
             rgba(35, 37, 42, 0.94),
             rgba(35, 37, 42, 0.82)
         ),
-        url("../images/hotel-cta.jpg") center / cover no-repeat;
+        url("../assets/images/hotel_image.jpg") center / cover no-repeat;
     color: #ffffff;
 }
 

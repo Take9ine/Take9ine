@@ -1,9 +1,10 @@
 # Gmail API password reset setup
 
-Customer password-reset codes are sent through the Gmail API from
-`take9ine254@gmail.com`. Configure the following environment variables for the
-PHP process:
+Customer password-reset codes are sent through the Gmail API. Configure these
+values in the private project `.env` for local work or as protected server
+environment variables for hosting:
 
+- `GMAIL_SENDER_EMAIL` (the authorized sender mailbox)
 - `GMAIL_CLIENT_ID`
 - `GMAIL_CLIENT_SECRET`
 - `GMAIL_REFRESH_TOKEN`
@@ -30,11 +31,12 @@ keep them outside the web root.
 While the consent screen is in Testing, only listed test users can authorize
 the app, and refresh tokens for non-basic scopes can expire after seven days.
 
-On XAMPP/Apache, configure the variables in Apache's server configuration (for
-example with `SetEnv`) or in the environment of the process that starts Apache,
-then restart Apache. Also ensure PHP's `curl` extension is enabled and apply
-the `password_reset_tokens` table definition in `T@ke9ine.sql` to the existing
-database. Reset codes are stored as password hashes, expire after 10 minutes,
+On XAMPP, the application loads the root `.env` file automatically. For hosting,
+prefer configuring the variables in the hosting provider's protected
+environment settings. Apache `SetEnv` values take precedence over `.env`.
+Ensure PHP's `curl` extension is enabled and apply the `password_reset_tokens`
+table definition in `database/schema.sql` to the existing database. Reset codes
+are stored as password hashes, expire after 10 minutes,
 are limited to five failed attempts, and can be requested once per minute per
 account. Reset requests use the same response for registered and unregistered
 email addresses. A successful reset updates the user password hash and
@@ -47,6 +49,7 @@ For example, Apache can pass these values to PHP from its server configuration
 SetEnv GMAIL_CLIENT_ID "your-oauth-client-id"
 SetEnv GMAIL_CLIENT_SECRET "your-oauth-client-secret"
 SetEnv GMAIL_REFRESH_TOKEN "your-oauth-refresh-token"
+SetEnv GMAIL_SENDER_EMAIL "authorized-sender@example.com"
 ```
 
 Keep the real values outside the website directory and never commit them.

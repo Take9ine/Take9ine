@@ -5,8 +5,8 @@ declare(strict_types=1);
 /**
  * Send an email through the Gmail API using OAuth 2.0 refresh-token credentials.
  *
- * Configure GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, and GMAIL_REFRESH_TOKEN in
- * the PHP process environment. The OAuth refresh token
+ * Configure GMAIL_SENDER_EMAIL, GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, and
+ * GMAIL_REFRESH_TOKEN in the application environment. The OAuth refresh token
  * must be authorized for the https://www.googleapis.com/auth/gmail.send scope.
  */
 function sendGmailApiMessage(
@@ -18,7 +18,7 @@ function sendGmailApiMessage(
     $clientId = trim((string) getenv('GMAIL_CLIENT_ID'));
     $clientSecret = trim((string) getenv('GMAIL_CLIENT_SECRET'));
     $refreshToken = trim((string) getenv('GMAIL_REFRESH_TOKEN'));
-    $senderEmail = 'take9ine254@gmail.com';
+    $senderEmail = trim((string) (getenv('GMAIL_SENDER_EMAIL') ?: ''));
 
     if (
         !filter_var($email, FILTER_VALIDATE_EMAIL) ||

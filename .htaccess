@@ -8,5 +8,7 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule ^(?:vendor|\.vscode|\.git)(?:/|$) - [F,L,NC]
+    RewriteRule ^\.(?:env(?:\..*)?|gitignore|gitattributes|htaccess)$ - [F,L,NC]
+    RewriteRule ^(css|js|assets)/(.*)$ frontend/$1/$2 [L,NC]
+    RewriteRule ^(?:vendor|config|backend|admin|database|\.vscode|\.git)(?:/|$) - [F,L,NC]
 </IfModule>

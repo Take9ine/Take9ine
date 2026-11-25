@@ -57,8 +57,37 @@
 }
 
 .form-group input:focus {
-    outline: none;
+    outline: 3px solid rgba(217, 119, 6, 0.2);
+    outline-offset: 2px;
     border-color: #d97706;
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 4.5rem;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.65rem;
+    padding: 0.35rem;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    color: #1d4ed8;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #d97706;
+    outline-offset: 2px;
 }
 
 .human-verification label {
@@ -98,6 +127,11 @@
 
 .btn-primary:hover {
     background-color: #1d4ed8;
+}
+
+.btn-primary:disabled {
+    cursor: wait;
+    opacity: 0.75;
 }
 
 .switch-text {

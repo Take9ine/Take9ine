@@ -12,6 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const subtitle     = document.getElementById('auth-subtitle');
     const loginTransition = document.getElementById('login-transition');
 
+    document.querySelectorAll('.password-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            const input = document.getElementById(toggle.getAttribute('aria-controls'));
+            const isVisible = input.type === 'text';
+            input.type = isVisible ? 'password' : 'text';
+            toggle.textContent = isVisible ? 'Show' : 'Hide';
+            toggle.setAttribute('aria-pressed', String(!isVisible));
+        });
+    });
+
     function showAlert(message, type) {
         const messageElement = alertBox.querySelector('.alert-message');
         messageElement.textContent = message;
@@ -206,7 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitButton = loginForm.querySelector('button[type="submit"]');
+        const buttonLabel = submitButton.textContent;
         submitButton.disabled = true;
+        submitButton.textContent = 'Signing in...';
         let loginSucceeded = false;
         const formData = new FormData(loginForm);
         formData.append('action', 'login');
@@ -228,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } finally {
             if (!loginSucceeded) {
                 submitButton.disabled = false;
+                submitButton.textContent = buttonLabel;
             }
         }
     });
