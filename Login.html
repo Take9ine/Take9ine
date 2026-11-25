@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T@ke9ine | Guest Portal</title>
+    <link rel="stylesheet" href="css/styling.css">
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>T@ke9ine</h2>
+                <p id="auth-subtitle">Sign in to manage your reservations</p>
+            </div>
+
+            <div id="alert-box" class="alert hidden" role="alert" aria-live="polite">
+                <div class="alert-popup-brand" aria-label="T@ke9ine">
+                    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                        <path d="M12 54V24h40v30M8 54h48M20 24V13h24v11M24 32h5m6 0h5M24 41h5m6 0h5M28 54V45h8v9" />
+                    </svg>
+                  s  <span>T@ke9ine</span>
+                </div>
+                <span class="alert-message"></span>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" name="email" placeholder="guest@example.com" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+                </div>
+                <div class="form-group human-verification">
+                    <label for="login-human-verification">
+                        <input
+                            type="checkbox"
+                            id="login-human-verification"
+                            name="human_verification"
+                            value="1"
+                            required
+                        >
+                        <span>Check this box to confirm you are human.</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+                <p class="switch-text"><a href="#" id="show-forgot-password">Forgot password?</a></p>
+                <p class="switch-text">Don't have an account? <a href="#" id="show-register">Create one</a></p>
+            </form>
+
+            <!-- PASSWORD RESET REQUEST FORM -->
+            <form id="forgot-password-form" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="forgot-email">Email Address</label>
+                    <input type="email" id="forgot-email" name="email" placeholder="guest@example.com" autocomplete="email" required>
+                </div>
+                <button type="submit" class="btn-primary">Send Reset Code</button>
+                <p class="switch-text">Remember your password? <a href="#" id="forgot-back-to-login">Sign in</a></p>
+            </form>
+
+            <!-- PASSWORD RESET FORM -->
+            <form id="reset-password-form" class="auth-form hidden">
+                <input type="hidden" id="reset-email" name="email">
+                <input type="hidden" id="reset-challenge-id" name="challenge_id">
+                <div class="form-group">
+                    <label for="reset-code">Reset Code</label>
+                    <input
+                        type="text"
+                        id="reset-code"
+                        name="reset_code"
+                        inputmode="numeric"
+                        pattern="[0-9]{6}"
+                        autocomplete="one-time-code"
+                        placeholder="6-digit code"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="reset-password">New Password</label>
+                    <input
+                        type="password"
+                        id="reset-password"
+                        name="password"
+                        minlength="6"
+                        maxlength="72"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="reset-password-confirm">Confirm New Password</label>
+                    <input
+                        type="password"
+                        id="reset-password-confirm"
+                        name="confirm_password"
+                        minlength="6"
+                        maxlength="72"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn-primary">Reset Password</button>
+                <p class="switch-text">Didn't receive a code? <a href="#" id="reset-request-another">Request another</a></p>
+                <p class="switch-text">Remember your password? <a href="#" id="reset-back-to-login">Sign in</a></p>
+            </form>
+
+            <!-- SIGN UP FORM -->
+            <form id="register-form" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="reg-name">Full Names</label>
+                    <input type="text" id="reg-name" name="full_name" placeholder="Jane Doe" maxlength="100" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email Address</label>
+                    <input type="email" id="reg-email" name="email" placeholder="jane@example.com" maxlength="254" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-phone">Phone Number</label>
+                    <input type="tel" id="reg-phone" name="phone" placeholder="+254 700 000 000" maxlength="20" autocomplete="tel" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" name="password" placeholder="Min. 6 characters" minlength="6" maxlength="72" autocomplete="new-password" required>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+                <p class="switch-text">Already have an account? <a href="#" id="show-login">Log in</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="login-transition" class="login-transition" aria-hidden="true">
+        <div class="login-transition-content" role="status" aria-live="polite">
+            <div class="hotel-logo" aria-hidden="true">
+                <svg viewBox="0 0 64 64" focusable="false">
+                    <path d="M12 54V24h40v30M8 54h48M20 24V13h24v11M24 32h5m6 0h5M24 41h5m6 0h5M28 54V45h8v9" />
+                </svg>
+            </div>
+            <h1>Welcome to T@ke9ine</h1>
+            <p>Logging you in...</p>
+            <div class="login-progress" aria-hidden="true"><span></span></div>
+        </div>
+    </div>
+
+    <script src="js/auth.js" defer></script>
+</body>
+</html>

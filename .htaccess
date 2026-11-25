@@ -1,0 +1,12 @@
+Options -Indexes
+
+<IfModule mod_authz_core.c>
+    <FilesMatch "(?i)^(?:\.|.*\.(?:sql|md|lock|ini|log|bak|dump|pem|key|p12|pfx)|composer\.(?:json|lock)|GMAIL_API_SETUP\.md)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(?:vendor|\.vscode|\.git)(?:/|$) - [F,L,NC]
+</IfModule>

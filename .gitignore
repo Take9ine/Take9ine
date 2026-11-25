@@ -1,0 +1,38 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+
+# Local database exports and backups (keep T@ke9ine.sql schema)
+*.sql.gz
+*.dump
+*.bak
+database-backup*
+database-dump*
+
+# Local logs and runtime artifacts
+*.log
+error_log
+*.pid
+*.cache
+/tmp/
+/storage/
+
+# Editor and operating-system noise
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Install dependencies with Composer instead of committing generated files
+/vendor/
+
+# Unused local upload
+/file.jpe
